@@ -1,1 +1,3 @@
-.venv/
+myvenv/
+03-Pandas/
+.DS_Store

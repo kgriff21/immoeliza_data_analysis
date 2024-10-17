@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee3b43cc-4f50-4ae0-aeb3-5bb3403d5c15" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analysis/Kelli_immoeliza_visualization.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Analysis/Kelli_immoeliza_visualization.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Cleaned/sanitized_property_listings_Kelli.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Archive/sanitized_property_listings_Kelli.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Kelli_main-checkpoint.ipynb" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +43,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Archive" />
       <recent name="$PROJECT_DIR$/Analysis" />
+      <recent name="$PROJECT_DIR$/Archive" />
     </key>
   </component>
   <component name="SharedIndexes">

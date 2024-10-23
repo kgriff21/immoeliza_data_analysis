@@ -1,133 +1,86 @@
+## Project overview
+The real estate company Immo Eliza wants to establish itself as the biggest Belgian real estate services provider. 
+ To achieve that goal, they need to more accurately and faster than their competitors estimate the value of properties, 
+ to pick out those properties that are most valuable to them and their clients.
+Enter creating a machine learning model to predict the prices of properties across Belgium. Having no in-house data scientists, 
+ they are looking for talented people to do it for them. Since our last encounter with them went great, they continue 
+ to rely on us to do the job. Everything is in our hands now!
 
-# Data Analysis
+By the end of this week, Immo Eliza's management wants to see a preliminary analysis based on the dataset we previously 
+scraped. The management has no technical background. Broadly speaking, they have two main questions:
+    What are currently the most interesting insights about the Belgian real estate market?
+    What variables are the most important when determining the price of a property?
 
-- Repository: `immo-eliza-teamname-analysis` 
-- Type: `Learning and consolidation`
-- Duration: `5 days`
-- Deadline: 22/10/2024 12:30 PM (code + presentations)
-- Team: team (3-4 people)
+## Dataset description and sanitization 
+The original scraped dataset is from the project repo of Kelli Griffin https://github.com/kgriff21/immoeliza_scraping
+10,000+ listings were scraped based on 17 different property parameters. Upon analysis of these data, the data was 
+further sanitized by dropping the column "Number of facades" as we concluded this would not bring valuable information
+to the final analysis. Additionally, there were many missing values for this criteria.
+We decided to drop rows with Nan in specific columns without assignment for Living area m², Number of bedrooms and 
+Building condition. Retaining the NaN values in the dataset would hinder the quality of the final analysis, as these 
+missing values pertain to important criteria necessary for drawing meaningful conclusions.
+The data was also sorted by price to include a cutoff of listings over 1 million euros to exclude outliers skewing the 
+analysis. The top 16 listings were excluded and considered as 'bad data' because these houses/apartments were for sale with
+a monthly annuity. However, the pre-sorted analysis (excluding bad data properties) was used for outlier conclusion visualizations. 
 
-## Mission Objectives
+In total, we have 15 features of 9033 listings. The proportion of missing values is as follows:
 
-- Be able to use `pandas`
-- Be able to use a data visualization library of your choice (such as `matplotlib`, `seaborn`, or `plotly)
-- Be able to clean a dataset for analysis
-- Be able to use colors in visualizations correctly
-- Be able to establish conclusions about a dataset
-- Be able to find and answer creative questions about data
-- Be able to present your insights to a non-technical audience
-- Be able to work in a group project
+Garden area m²:                0.714381
 
-## The Mission
+Terrace surface m²:            0.519097
 
-The real estate company Immo Eliza wants to establish itself as the biggest Belgian real estate services provider. To achieve that goal, they need to more accurately and faster than their competitors estimate the value of properties, to pick out those properties that are most valuable to them and their clients.
+Number of facades:             0.295140
 
-Enter creating a machine learning model to predict the prices of properties across Belgium. Having no in-house data scientists, they are looking for talented people to do it for them. Since your last encounter with them went great, they continue to rely on you to do the job. Everything is in your hands now!
+The other property features give 0% missing values. 
 
-By the end of this week, Immo Eliza's management wants to see a preliminary analysis based on the dataset you previously scraped. The management has no technical background. Broadly speaking, they have two main questions: 
-- What are currently the most interesting insights about the Belgian real estate market?
-- What variables are the most important when determining the price of a property?
+The final sanitized property listings data can be found here: Data/Cleaned/sanitized_property_listings_Kelli_final.csv
 
-## Steps
+## Repo and directory structure
+The repo can be found here: https://github.com/Kevin-Van-Hoorebeek/immoeliza_data_analysis/tree/main
 
-### Step 0: Team Organization
+Analysis: To view data analysis and notebooks from each team member.
 
-Each team will be assing a team leader and a repo manager. Here are their responsibilities:
+Archive: Contains pre-completed sanitized data.
 
-- Team leader: Is the main point of contant of the coach. They will lead the teams daily discussions on how to tackle the project and keep track of team members progress.
-- Repo manager: They are the only person allowed to merge to the main branch. 
-- Developers: Everyone! You will all work on tackling the problem.
+Data: Contains two subfolders 1. Cleaned with the final csv of sanitized data which was used for the analysis 2. 
+Raw folder which contains a csv file from Vanessa and the original scraped csv from Kelli (obtained from previous 
+section of the project).
 
-**Important:**  To help with the project management, each team will have a Trello board keeping track of their tasks and their progress. Each team leader will invite the coach. Each person on the team should work in their own branch!
+.gitignore: Containing files and directories that Git should ignore when tracking changes in the repository.
 
-### Step 1: Data Cleaning
+requirement.txt: Containing necessary library installations to run the code.
 
-You have collected your data, time to further clean it.
+README.md: Project overview 
 
-A cleaned dataset is a dataset that doesn't contain any duplicates, has no blank spaces, and has no other obvious errors. The rest of the analysis is worthless if you neglect this step; Garbage In, Garbage Out.
 
-Take care of the following:
-- No duplicates
-- No blank spaces (e.g. `" I love python "` => `"I love python"`)
-- No empty values (set them to `None` or `NaN`)
-- No wrongly encoded values (e.g. a text value in the price column)
+## Dependencies/Installation
+The required packages and libraries to successfully run this code and be installed via the requirements.txt
 
-### Step 2: Data Analysis
+## Group contributions
+This was a group effort by Anastasiia Korostelova, Kelli Griffin (team lead), Kevin Van Hoorebeek (repo manager), 
+Maarten Warnez and Yeliz Kaya.
+Each person was assigned questions to answer about the data and produce visualizations to present to the class.
 
-Now that the data has been both collected and cleaned, let's move on to the analysis.
+Kevin Van Hoorebeek and Kelli Griffin were assigned the questions: How many qualitative and quantitative variables are there? 
+How would you transform the qualitative values into numerical values? What variables are most subject to outliers?
 
-You **must** be able to answer following questions (with a vizualization if appropriate):
-- How many observations and features do you have?
-- What is the proportion of missing values per column?
-- Which variables would you delete and why?
-- What variables are most subject to outliers?
-- How many qualitative and quantitative variables are there? How would you transform the qualitative values into numerical values?
-- What is the correlation between the variables and the price? Why do you think some variables are more correlated than others?
-- How are the variables themselves correlated to each other? Can you find groups of variables that are correlated together?
-- How are the number of properties distributed according to their surface?
-- Which five variables do you consider the most important and why?
-- What are the least/most expensive municipalities in Belgium/Wallonia/Flanders? (_in terms of price per m², average price, and median price_)
+Anastasiia Korostelova: What are the least/most expensive municipalities in Belgium/Wallonia/Flanders? (in terms of 
+price per m², average price, and median price)
 
-This is a non-exhaustive list of possible questions. Try to make a maximum number of interpretations from the dataset. **Bonus points for creative and out-of-the-box insights.**
+Maarten Warnez: How are the variables themselves correlated to each other? Can you find groups of variables that are 
+correlated together?
 
-Use tools such as `matplotlib`, `seaborn`, `plotly`, or [insert whatever visualization tool you find useful]...
+Yeliz Kaya: What is the correlation between the variables and the price? Why do you think some variables are more 
+correlated than others? 
 
-> Do your analysis in notebooks. No real need for scripting in this case, you'll want to have your hands free to experiment and explore the data in many directions. Writing functions for code you reuse is still a good idea, don't lose track of your good habits. Don't make it too messy though, your results should be reproducible and Immo Eliza's CEO might ask to rerun an analysis with a slight change :-)
+## Results
+The visual graphs and images were presented to the
+class.
+https://docs.google.com/presentation/d/1eiQeFjKJOGb96rREQTS7X82Ly_EIRpRAhyQ2701bf-4/edit?usp=sharing
 
-### Step 3: Presentation
+## How to run the code
+The final conclusions from each team member have been collected in a notebook: Analysis/data_analysis_final_all.ipynb
+The notebook is divided into sections based on each individuals work.
 
-After analyzing your data, you're finally ready to present your results. You have to communicate your analysis using simple words and clear graphs, and ideally also deliver a few recommendations.
 
-You can make your **plots** presentation-ready by accounting for the following points:
-- A clear title
-- A legend (if applicable)
-- Add axis labels (in understandable language, no variable names)
-- Add axis units
-- Have comparable scales
-- Have no overlapping text
-- A main takeaway
-- Remove all clutter that doesn't contribute to the message
-- Smart use of [colors](https://chartio.com/learn/charts/how-to-choose-colors-data-visualization/)
-
-> Don't mention data cleaning in your presentation as this is a technical background task. You should focus on the insights you found and the recommendations you can make.
-
-## Repository
-
-Create a new repository for the analysis and modeling steps of the project.
-
-Establish the following:
-- In your `data/` folder
-   - Have a `raw/` folder with the original dataset
-   - Have a `cleaned/` folder with the cleaned dataset
-- Make a `clean.py` script for any additional cleaning
-- Add your notebooks in an `analysis/` folder
-- Put your finalized presentation in `.pdf` format in a `reports/` folder
-
-In general, **think modular**! You do not want to run all steps at once, so your code should be tailored to that gradual process: scrape, clean, analyze, model, deploy, ...
-
-## Deliverables
-
-As main deliverable, we expect a compelling presentation of **10 minutes + 5 minutes Q&A** that conveys your data analysis including at least five well-crafted visualizations. Use Canva for your presentations and incorporate the feedback from your previous presentation.
-
-Next to that, your repository should be updated.
-
-On **Tuesday 22/10** in the afternoon,you present your presentation to your coach(es) and collagues. They will give you feedback on the content and the structure.
-
-## Evaluation criteria
-
-| Criteria       | Indicator                                            | Yes/No |
------------------|------------------------------------------------------| ------ |
-| 1. Is complete | Know how to answer all the above questions           |        |
-|                | Good use of `pandas` and a visualization library     |        |
-|                | Deliver a convincing presentation                    |        |
-|                | Clean notebook(s)                                    |        |
-|                | An updated repository                                |        |
-| 2. Is great    | Creative questions were answered                     |        |
-|                | The colors are chosen carefully                      |        |
-
-## Quotes
-
-_"The lottery is a tax on people who don't understand statistics." - Anonymous_
-
-![You've got this!](https://media.giphy.com/media/JrXas5ecb4FkwbFpIE/giphy.gif)
 
